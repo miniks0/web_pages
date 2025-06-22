@@ -1,0 +1,238 @@
+/* General reset & base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff6600;
+  transition: color 0.3s ease;
+}
+
+/* Skip to content link */
+.skip-link {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Header and Navigation */
+header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: #222;
+  padding: 10px;
+  list-style: none;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  background-color: #444;
+}
+
+/* Grid layout for movie images - MOBILE FIRST */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+/* Styling images with box model */
+figure {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+figure:hover {
+  transform: scale(1.05);
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  transition: transform 0.3 ease;
+}
+
+/* Alternate border radius using nth-child */
+figure:nth-child(odd) img {
+  border-radius: 20px 5px;
+}
+
+figure:nth-child(even) img {
+  border-radius: 5px 20px;
+}
+
+/* Movie list table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+td img:hover {
+  transform: scale(1.1);
+}
+
+th {
+  background-color: #444;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Special image adjustment: Conan Movie 28 */
+img[src*="Conan_Movie_28"] {
+  width: 200px !important;
+  height: auto !important;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* === TABLET VIEW === */
+@media screen and (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  figure:hover {
+  transform: scale(1.05);
+  }
+
+  figure {
+    border-radius: 50%;
+  }
+
+  .grid figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* === LARGE SCREEN VIEW === */
+@media screen and (min-width: 992px) {
+
+    figure:hover {
+  transform: scale(1.05);
+  }
+
+  figure {
+    border-radius: 0;
+  }
+
+  .grid figure:nth-of-type(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* === PREFERS-REDUCED-MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  figure:hover,
+  td img:hover {
+    transform: none !important;
+  }
+}
+
+/* === DARK MODE === */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+
+  nav ul {
+    background-color: #000;
+  }
+
+  a {
+    color: #ffcc00;
+  }
+
+  figure {
+    background-color: #222;
+    color: #ffcc00;
+    border-color: black;
+  }
+
+  table {
+    background-color: #222;
+    color: #eee;
+  }
+
+  th {
+    background-color: #000;
+  }
+
+  footer {
+    color: #aaa;
+  }
+}
